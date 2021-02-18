@@ -24,14 +24,24 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🥳 Correct Number';
   } else if (guess > secretNumber) {
-    score--;
-    document.querySelector('.score').textContent = score;
-    document.querySelector('.message').textContent =
-      'Your guess was too High 📈';
+    if (score > 1) {
+      score--;
+      document.querySelector('.score').textContent = score;
+      document.querySelector('.message').textContent =
+        'Your guess was too High 📈';
+    } else {
+      document.querySelector('.message').textContent = 'You lost the game 😢';
+      document.querySelector('.score').textContent = 0;
+    }
   } else if (guess < secretNumber) {
-    score--;
-    document.querySelector('.score').textContent = score;
-    document.querySelector('.message').textContent =
-      'Your guess was too Low 📉';
+    if (score > 1) {
+      score--;
+      document.querySelector('.score').textContent = score;
+      document.querySelector('.message').textContent =
+        'Your guess was too Low 📉';
+    } else {
+      document.querySelector('.message').textContent = 'You lost the game 😢';
+      document.querySelector('.score').textContent = 0;
+    }
   }
 });
