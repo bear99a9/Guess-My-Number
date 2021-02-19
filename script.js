@@ -36,11 +36,11 @@ document.querySelector('.check').addEventListener('click', function () {
     if (score > 1) {
       score--;
       document.querySelector('.score').textContent = score;
-      let message =
+      displayMessage(
         guess > secretNumber
           ? 'Your guess was too High 📈'
-          : 'Your guess was too Low 📉';
-      displayMessage(message);
+          : 'Your guess was too Low 📉'
+      );
     } else {
       displayMessage('You lost the game 😢');
       document.querySelector('.score').textContent = 0;
